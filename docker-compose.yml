@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: omfp-postgres
+    environment:
+      POSTGRES_USER: omfp_admin
+      POSTGRES_PASSWORD: omfp_password
+      POSTGRES_DB: omfp
+    ports:
+      - "5432:5432"
+    volumes:
+      - omfp_postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  omfp_postgres_data:
